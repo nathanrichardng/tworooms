@@ -59,6 +59,7 @@ Schema.Game = new SimpleSchema({
             }
         }
     }
+    //add timerStartTime, timerPausedTime, and timerPaused attributes to manage timer for game
 });
 
 Cards.attachSchema(Schema.Card);

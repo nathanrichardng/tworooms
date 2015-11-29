@@ -1,3 +1,4 @@
 Router.configure({
-	layoutTemplate: 'main'
+	layoutTemplate: 'main',
+	loadingTemplate: 'loading'
 });

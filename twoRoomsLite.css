@@ -3,6 +3,36 @@
 	color: #C93C3C;
 }
 
+.spinner-holder {
+	position:absolute;
+	top: 50%;
+	left: 50%;
+	width: 300px;
+	height: 300px;
+	transform: translate(-150px, -150px);
+}
+
+.fa-bomb.spinner {
+  font-size: 200px;
+  text-align: center;
+  width: 100%;
+  animation: fa-bomb 1s infinite linear;
+}
+
+@keyframes fa-bomb {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.jumbotron {
+	font-family: 'Gloria Hallelujah', cursive;
+}
+
 .Terrorists {
 	background-color: #B33E3E;
 	color: #fff;
