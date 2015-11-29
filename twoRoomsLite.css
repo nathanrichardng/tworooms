@@ -1,0 +1,55 @@
+/* CSS declarations go here */
+.fa-bomb {
+	color: #C93C3C;
+}
+
+.Terrorists {
+	background-color: #B33E3E;
+	color: #fff;
+}
+
+.Counter-Terrorists {
+	background-color: #43B1FA;
+	color: #fff;
+}
+
+.Individual {
+	background-color: #40C267;
+	color: #fff;
+}
+
+.card {
+	min-height: 500px;
+	margin-bottom: 20px;
+	border-radius: 30px;
+}
+
+.spacer {
+	margin-top: 50px;
+}
+
+.scroll-x {
+	overflow-x: auto;
+}
+
+.new-game-button {
+	margin-top: 10%;
+	background-color: steelblue;
+	height: 50px;
+	font-size: 32px;
+	color:#fff;
+}
+
+.leave-game-button, .start-game-button {
+	height: 50px;
+}
+
+.lobby .start-game-button {
+	background-color: #43B1FA;
+	color: #fff;
+}
+
+.lobby .leave-game-button {
+	background-color: #B33E3E;
+	color: #fff;
+}

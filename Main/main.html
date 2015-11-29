@@ -1,0 +1,19 @@
+<template name="main">
+  <div class='container'>
+    <!--meteor-include src="loginButtons"></meteor-include-->
+    <div class="row">
+      <nav class='navbar navbar-default'>
+        <div class='container-fluid'>
+          <div class='navbar-header'>
+            <a class="navbar-brand" href="/"><i class="fa fa-bomb"></i> TwoRooms</a>
+          </div>
+        </div>
+      </nav>
+    </div>
+      <div ui-view></div>
+      
+  </div>
+  <div class='container full-height'>
+    {{> yield}}
+  </div>
+</template>

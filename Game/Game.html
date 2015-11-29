@@ -1,0 +1,44 @@
+<template name="game">
+	{{#if inLobby}}
+		{{> lobby}}
+	{{else}}
+		<div class="row">
+			{{> card}}
+		</div>
+		<div class="row">
+			{{> leaveGameButton}}
+		</div>
+	{{/if}}
+</template>
+
+<template name="startGameButton">
+	<button class="start-game-button col-md-4 col-xs-12">
+		Start Game
+	</button>
+</template>
+
+<template name="leaveGameButton">
+	<button class="leave-game-button col-md-4 col-xs-12">
+		Leave Game
+	</button>
+</template>
+
+<template name="lobby">
+	<div class="row">
+		<h4>Text this URL to your friends:</h4>
+		<div class="scroll-x well">
+			<p>http://tworooms.meteor.com/game/{{_id}}</p>
+		</div>
+	</div>
+	{{#if playingGame}}
+		<div class="row">
+			{{> players}}
+		</div>
+		<div class="row spacer lobby">
+			{{> startGameButton}}
+			{{> leaveGameButton}}
+		</div>
+	{{else}}
+		{{> addPlayerForm}}
+	{{/if}}
+</template>

@@ -1,0 +1,23 @@
+<template name="players">
+	<h3>Players:</h3>
+	<ul class="list-group">
+		{{#each players}}
+			{{> player}}
+		{{/each}}
+	</ul>
+</template>
+
+<template name="player">
+	<div class="list-group-item col-md-8">{{name}}</div>
+</template>
+
+<template name="addPlayerForm">
+	<form class="add-player-form">
+		<div class="input-group">
+	      <input type="text" placeholder="Choose a name" name="name" class="form-control">
+	      <span class="input-group-btn">
+	        <button class="btn btn-default" type="button">Join Lobby</button>
+	      </span>
+	    </div>
+	</form>
+</template>
