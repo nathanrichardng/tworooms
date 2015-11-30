@@ -58,8 +58,28 @@ Schema.Game = new SimpleSchema({
                 return createdOn;
             }
         }
+    },
+    timerLength: {
+        type: Number,
+        autoValue: function() {
+            if(this.isInsert) {
+                return 3
+            }
+        }
+    },
+    timerEndTime: {
+        type: Date,
+        optional: true
+    },
+    timerPaused: {
+        type: Boolean,
+        optional: true
+    },
+    timerPausedTime: {
+        type: Date,
+        optional: true
     }
-    //add timerStartTime, timerPausedTime, and timerPaused attributes to manage timer for game
+    //create methods that set an end time, and retrieve the time remaining
 });
 
 Cards.attachSchema(Schema.Card);

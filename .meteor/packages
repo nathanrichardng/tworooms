@@ -21,3 +21,4 @@ u2622:persistent-session
 iron:router
 twbs:bootstrap
 momentjs:moment
+mizzao:timesync
