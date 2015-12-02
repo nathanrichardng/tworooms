@@ -17,9 +17,20 @@ if (Meteor.isServer) {
   	},
   	'startTimer': function(gameId) {
   		var game = Games.findOne({ _id: gameId });
-  		var endTime = moment().add(game.timerLength, "minutes").toDate();
+  		var endTime;
+  		if (game.timerEndTime) {
+  			endTime = moment(game.timerEndTime);
+  		}
+  		else {
+  			endTime = moment().add(game.timerLength, "minutes").toDate();
+  		} 
+  		if (game.timerPaused) {
+  			var pausedTime = moment(game.timerPausedTime);
+  			var timePaused = moment().diff(pausedTime);
+  				endTime = endTime.add(timePaused).toDate();
+  		}
   		Games.update({ _id: gameId }, {
-  			$set: { timerEndTime: endTime }
+  			$set: { timerEndTime: endTime, timerPaused: false, timerPausedTime: null }
   		});
   		return endTime;
   	},
