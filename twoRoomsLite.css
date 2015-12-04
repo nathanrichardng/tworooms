@@ -83,3 +83,20 @@
 	background-color: #B33E3E;
 	color: #fff;
 }
+
+.timer {
+	font-size: 24px;
+	color: #495357;
+}
+
+.timer .glyphicon:hover {
+	color: steelblue;
+}
+
+.time {
+	font-family: 'Exo', sans-serif;
+}
+
+.spacer {
+	height: 1px;
+}

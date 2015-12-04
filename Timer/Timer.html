@@ -1,5 +1,9 @@
 <template name="timer">
-	<div class="start-timer"><span class="glyphicon glyphicon-play"></span></div>
-	<div class="pause-timer"><span class="glyphicon glyphicon-pause"></span></div>
-	{{timeRemaining}}
+	<div class="col-xs-12 col-md-4 timer">
+		<span class="col-xs-6 time">{{timeRemaining}}</span>
+		<span class="glyphicon glyphicon-play start-timer col-xs-2"></span>
+		<span class="glyphicon glyphicon-pause pause-timer col-xs-2"></span>
+		<span class="glyphicon glyphicon-repeat reset-timer col-xs-2"></span>
+	</div>
+	<div class="col-md-8 spacer"></div>
 </template>

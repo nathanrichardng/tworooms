@@ -26,9 +26,6 @@ if (Meteor.isServer) {
     'startGame': function(gameId) {
       var players = Players.find({ game: gameId }).fetch();
       var remainingCards = players.length;
-      if (remainingCards < 2) {
-        return "Not enough players";
-      }
 
       var deck = [];
 

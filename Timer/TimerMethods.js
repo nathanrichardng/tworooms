@@ -1,33 +1,17 @@
 if (Meteor.isServer) {
   Meteor.methods({
-  	'getTimeRemaining': function(playerId) {
-  		var player = Players.findOne({ _id: playerId });
-  		var gameId = player.game;
-  		var game = Games.findOne({ _id: gameId });
-  		var endTime = game.timerEndTime;
-  		if(endTime === undefined || endTime === null) {
-  			return game.timerLength + ":00";
-  		}
-  		var endTime = moment(game.timerEndTime);
-
-  		var currentTime = game.timerPaused ? moment(game.timerPausedTime) : moment();
-  		var timeRemaining = endTime.diff(currentTime);
-  			timeRemaining = timeRemaining > 0 ? moment(timeRemaining).format("m:ss") : "Times up!";
-  		return timeRemaining;
-  	},
   	'startTimer': function(gameId) {
   		var game = Games.findOne({ _id: gameId });
   		var endTime;
-  		if (game.timerEndTime) {
-  			endTime = moment(game.timerEndTime);
+  		if (game.timerPaused) {
+  			var timeElapsed = moment().diff(moment(game.timerPausedTime));
+  				endTime = moment(game.timerEndTime).add(timeElapsed, "ms").toDate();
+  		}
+  		else if (game.timerEndTime) {
+  			endTime = game.timerEndTime;
   		}
   		else {
   			endTime = moment().add(game.timerLength, "minutes").toDate();
-  		} 
-  		if (game.timerPaused) {
-  			var pausedTime = moment(game.timerPausedTime);
-  			var timePaused = moment().diff(pausedTime);
-  				endTime = endTime.add(timePaused).toDate();
   		}
   		Games.update({ _id: gameId }, {
   			$set: { timerEndTime: endTime, timerPaused: false, timerPausedTime: null }
@@ -35,10 +19,22 @@ if (Meteor.isServer) {
   		return endTime;
   	},
   	'pauseTimer': function(gameId) {
+  		var game = Games.findOne({ _id: gameId });
   		var pausedTime = moment().toDate();
+  		if (game.timerPaused) {
+  			return "Already paused";
+  		}
   		Games.update({ _id: gameId }, {
   			$set: { timerPaused: true, timerPausedTime: pausedTime }
   		});
+  		return pausedTime;
+  	},
+  	'resetTimer': function(gameId) {
+  		var game = Games.findOne({ _id: gameId });
+  		Games.update({ _id: gameId }, {
+  			$set: { timerEndTime: null, timerPaused: false, timerPausedTime: null }
+  		});
+  		return "timer reset";
   	}
   });
 }
