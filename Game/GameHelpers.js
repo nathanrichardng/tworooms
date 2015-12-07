@@ -37,6 +37,7 @@ if (Meteor.isClient) {
       });
     },
     "click .leave-game-button": function(event) {
+      event.preventDefault();
       console.log("Leaving Game");
       console.log("current game", Games.findOne({ _id: this._id }));
       var playerId = Session.get("playerId");
@@ -50,9 +51,10 @@ if (Meteor.isClient) {
           Session.setPersistent("playerId", null);
           Router.go("/");
         }
-      })
+      });
     },
     "click .start-game-button": function(event) {
+      event.preventDefault();
       console.log("Starting Game");
       var gameId = this._id;
       Meteor.call("startGame", gameId, function(error, success) {
@@ -63,6 +65,12 @@ if (Meteor.isClient) {
           console.log("successfully started game", success);
         }
       })
+    },
+    "click .copy-game-address": function(event) {
+        var urlField = document.querySelector('#game-address');
+        // select the contents
+        urlField.select();
+        document.execCommand('copy'); // or 'cut'
     }
   });
 

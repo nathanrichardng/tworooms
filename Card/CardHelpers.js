@@ -40,7 +40,9 @@ if (Meteor.isClient) {
       var gameId = player.game;
       var game = Games.findOne({ _id: gameId });
       var slotsAvailable = game.players.length - 2 - game.deckList.length;
-
+      if (slotsAvailable < 0) {
+        slotsAvailable = 0
+      }
       return slotsAvailable;
     }
   });

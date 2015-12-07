@@ -1,20 +1,33 @@
 <template name="card">
-	{{#with card}}
-		<div class="col-xs-12 col-md-4 card {{team}}">
-			<div class="card-team"><h3>{{team}}</h3></div>
-			<hr>
-			<div class="{{cardVisibility}}">
-				<div class="card-name"><h4>{{name}}</h4></div>
-				<div class="card-description">{{description}}</div>
+	{{#if card}}
+		{{#with card}}
+			<div class="col-xs-12 col-md-4 card {{team}}">
+				<div class="card-team"><h3>{{team}}</h3></div>
+				<hr>
+				<div class="{{cardVisibility}}">
+					<div class="card-name"><h4>{{name}}</h4></div>
+					<div class="card-description">{{description}}</div>
+				</div>
 			</div>
-		</div>
-	{{/with}}
+		{{/with}}
+	{{else}}
+		{{> noCardMessage}}
+	{{/if}}
+	
+</template>
+
+<template name="noCardMessage">
+	<div class="jumbotron">
+	  <h1>You don't have a card!</h1>
+	  <p>Looks like your friends started without you.</p>
+	  <p>You should probably go yell at them to remake the game or something.</p>
+	</div>
 </template>
 
 <template name="showCardsButton">
 	<div class="col-xs-12 ">
 		<span data-toggle="modal" data-target="#cards-list-modal" class="pull-right show-cards-button">
-		  <span class="glyphicon glyphicon-plus"></span> Add custom cards
+		  <span class="glyphicon glyphicon-plus"></span> Add special cards
 		</span>
 	</div>
 	<div class="modal fade" tabindex="-1" role="dialog" id="cards-list-modal">
@@ -22,7 +35,7 @@
 	    <div class="modal-content">
 	      <div class="modal-header">
 	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-	        <h4 class="modal-title">Custom Cards</h4>
+	        <h4 class="modal-title">Add Cards</h4>
 	      </div>
 	      <div class="modal-body">
 	        {{> cardsList}}

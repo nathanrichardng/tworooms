@@ -41,6 +41,10 @@
 		<div class="row">
 			<h4>Text this URL to your friends:</h4>
 			{{> gameAddress}}
+			<div class="pull-right">
+				
+			</div>
+			
 		</div>
 		{{> addPlayerForm}}
 	{{/if}}
@@ -48,7 +52,8 @@
 
 <template name="gameAddress">
 	<div class="scroll-x well">
-		<p>http://tworoomsapp.com/game/{{_id}}</p>
+		<input class="form-control" id="game-address" type="url" readonly value="http://tworoomsapp.com/game/{{_id}}">
+		<button class="copy-game-address col-xs-12">Copy</button>
 	</div>
 </template>
 

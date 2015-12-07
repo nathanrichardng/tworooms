@@ -9,18 +9,21 @@ if (Meteor.isServer) {
     },
     'leaveGame': function(playerId) {
       var player = Players.findOne({ _id: playerId });
-      var gameId = player.game;
 
-      Players.remove({ _id: playerId });
+      if(player) {
+        var gameId = player.game;
 
-      Games.update({ _id: gameId }, {
-        $pull: { players: playerId }
-      });
+        Players.remove({ _id: playerId });
+
+        Games.update({ _id: gameId }, {
+          $pull: { players: playerId }
+        });
+      }
 
       //remove all games that are at least a day old
       var cutoffTime = moment().subtract(1, "days").toDate();
       Games.remove({ createdOn: { $lte: cutoffTime } });
-
+      
       return "Left Game";
     },
     'addCardToDeckList': function(playerId, cardId) {
