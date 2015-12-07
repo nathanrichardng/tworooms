@@ -23,28 +23,65 @@ if (Meteor.isServer) {
 
       return "Left Game";
     },
+    'addCardToDeckList': function(playerId, cardId) {
+      var player = Players.findOne({ _id: playerId });
+      var gameId = player.game;
+      var game = Games.findOne({ _id: gameId });
+      if (game.deckList.length + 2 >= game.players.length) {
+        return "Not enough players";
+      }
+      Games.update({ _id: gameId }, {
+        $addToSet: { deckList: cardId }
+      });
+      return cardId + " was added to DeckList by " + playerId;
+    },
+    'removeCardFromDeckList': function(playerId, cardId) {
+      var player = Players.findOne({ _id: playerId });
+      var gameId = player.game;
+      Games.update({ _id: gameId }, {
+        $pull: { deckList: cardId }
+      });
+      return cardId + " was removed from DeckList by " + playerId;
+    },
     'startGame': function(gameId) {
+      var game = Games.findOne({ _id: gameId });
       var players = Players.find({ game: gameId }).fetch();
+      var playerSelectedCards = game.deckList;
       var remainingCards = players.length;
 
       var deck = [];
 
       //add president and bomber
-      deck.push("President");
-      deck.push("Bomber");
+      var president = Cards.findOne({ name: "President" })._id;
+      var bomber = Cards.findOne({ name: "Bomber" })._id;
+      deck.push(president);
+      deck.push(bomber);
       remainingCards -= 2;
 
+      //add the player selected cards
+      if (playerSelectedCards.length > 0) {
+        for(var k = 0; k < remainingCards; k++) {
+          deck.push(playerSelectedCards[k]);
+        }
+      }
+
+      //update the number of remaining cards
+      remainingCards -= playerSelectedCards.length;
       //if there will be an odd number of players left
       //add a Gambler to fill the gap
       if (remainingCards % 2 > 0) {
+        var gambler = Cards.findOne({ name: "Gambler" })._id;
+        deck.push(gambler);
         remainingCards -= 1;
-        deck.push("Gambler");
       }
+
 
       //divide the remaining cards into Agent or Terrorist
       for (var i = 0; i < remainingCards/2; i++) {
-        deck.push("Agent");
-        deck.push("Terrorist");
+        var agent = Cards.findOne({ name: "Agent" })._id;
+        var terrorist = Cards.findOne({ name: "Terrorist" })._id;
+        deck.push(agent);
+        deck.push(terrorist);
       }
 
       //shuffle the deck
@@ -53,8 +90,7 @@ if (Meteor.isServer) {
       //deal out the cards
       for(var j = 0; j < players.length; j++) {
         var playerId = players[j]._id;
-        var cardName = deck[j];
-        var cardId = Cards.findOne({ name: cardName })._id;
+        var cardId = deck[j];
         Players.update({ _id: playerId }, {
           $set: { card: cardId }
         });

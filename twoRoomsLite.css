@@ -84,6 +84,18 @@
 	color: #fff;
 }
 
+.show-cards-button, .show-game-address-button {
+	background-color: inherit;
+	color: steelblue;
+	border: none;
+	cursor: pointer;
+}
+
+.fa.fa-mobile {
+	font-size: 24px;
+	vertical-align: middle;
+}
+
 .timer {
 	font-size: 24px;
 	color: #495357;

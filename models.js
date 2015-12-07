@@ -18,6 +18,9 @@ Schema.Card = new SimpleSchema({
     team: {
         type: String,
         optional: false
+    },
+    core: {
+        type: Boolean
     }
 });
 
@@ -56,6 +59,14 @@ Schema.Game = new SimpleSchema({
             if(this.isInsert) {
                 var createdOn = new Date();
                 return createdOn;
+            }
+        }
+    },
+    deckList: {
+        type: [String],
+        autoValue: function() {
+            if(this.isInsert) {
+                return [];
             }
         }
     },

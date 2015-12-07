@@ -25,13 +25,11 @@
 </template>
 
 <template name="lobby">
-	<div class="row">
-		<h4>Text this URL to your friends:</h4>
-		<div class="scroll-x well">
-			<p>http://tworooms.meteor.com/game/{{_id}}</p>
-		</div>
-	</div>
 	{{#if playingGame}}
+		<div class="row">
+			{{> showGameAddressButton}}
+			{{> showCardsButton}}
+		</div>
 		<div class="row">
 			{{> players}}
 		</div>
@@ -40,6 +38,40 @@
 			{{> leaveGameButton}}
 		</div>
 	{{else}}
+		<div class="row">
+			<h4>Text this URL to your friends:</h4>
+			{{> gameAddress}}
+		</div>
 		{{> addPlayerForm}}
 	{{/if}}
+</template>
+
+<template name="gameAddress">
+	<div class="scroll-x well">
+		<p>http://tworoomsapp.com/game/{{_id}}</p>
+	</div>
+</template>
+
+<template name="showGameAddressButton">
+	<div class="col-xs-12">
+		<span data-toggle="modal" data-target="#game-address-modal" class="pull-right show-game-address-button">
+		  <i class="fa fa-mobile"></i> Show game address
+		</span>
+	</div>
+	<div class="modal fade" tabindex="-1" role="dialog" id="game-address-modal">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4>Text this URL to your friends:</h4>
+	      </div>
+	      <div class="modal-body">
+	        {{> gameAddress}}
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	      </div>
+	    </div><!-- /.modal-content -->
+	  </div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->		
 </template>
