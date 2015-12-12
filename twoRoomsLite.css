@@ -116,3 +116,11 @@
 .margin-bottom {
 	margin-bottom: 20px;
 }
+
+.instructions {
+	font-family: 'Gloria Hallelujah', cursive;
+}
+
+.width-100 {
+	width: 100%;
+}

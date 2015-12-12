@@ -1,9 +1,36 @@
 <template name="timer">
 	<div class="col-xs-12 col-md-4 timer">
 		<span class="col-xs-6 time">{{timeRemaining}}</span>
-		<span class="glyphicon glyphicon-play start-timer col-xs-2"></span>
-		<span class="glyphicon glyphicon-pause pause-timer col-xs-2"></span>
+		{{#if timerRunning}}
+			<span class="glyphicon glyphicon-pause pause-timer col-xs-2"></span>
+		{{else}}
+			<span class="glyphicon glyphicon-play start-timer col-xs-2"></span>
+		{{/if}}
 		<span class="glyphicon glyphicon-repeat reset-timer col-xs-2"></span>
+		{{> setTimerButton}}
 	</div>
 	<div class="col-md-8 spacer"></div>
+</template>
+
+<template name="setTimerButton">
+	<span data-toggle="modal" data-target="#set-timer-modal" class="glyphicon glyphicon-time col-xs-2"></span>
+	<div class="modal fade" tabindex="-1" role="dialog" id="set-timer-modal">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title">Set Timer Length</h4>
+	      </div>
+	      <div class="modal-body">
+	      	<form class="set-timer-length">
+	      		<input type="number" name="timerLength" value="{{timerLength}}" class="width-100">
+	      		<input type="submit" class="btn btn-danger width-100">
+	      	</form>
+	      </div>
+	      <div class="modal-footer">
+	        
+	      </div>
+	    </div><!-- /.modal-content -->
+	  </div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->		
 </template>

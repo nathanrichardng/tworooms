@@ -30,11 +30,17 @@ if (Meteor.isServer) {
   		return pausedTime;
   	},
   	'resetTimer': function(gameId) {
-  		var game = Games.findOne({ _id: gameId });
   		Games.update({ _id: gameId }, {
   			$set: { timerEndTime: null, timerPaused: false, timerPausedTime: null }
   		});
   		return "timer reset";
-  	}
+  	},
+    'setTimerLength': function(gameId, length) {
+      var filteredLength = length >= 0 ? length : 3;
+      Games.update({ _id: gameId }, {
+        $set: { timerLength: filteredLength, timerEndTime: null, timerPaused: false, timerPausedTime: null }
+      });
+      return "updated timer length";
+    }
   });
 }

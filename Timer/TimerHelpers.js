@@ -18,6 +18,12 @@ if (Meteor.isClient) {
       }
 
       return returnTime > 0 ? returnTime.format("m:ss") : "Times up!";
+    },
+    timerRunning: function() {
+      var playerId = Session.get("playerId");
+      var player = Players.findOne({ _id: playerId });
+      var game = Games.findOne({ _id: player.game });
+      return (!game.timerPaused && game.timerEndTime);
     }
   });
 
@@ -39,6 +45,14 @@ if (Meteor.isClient) {
       Meteor.call("resetTimer", this._id, function(error, time) {
         console.log("reset time", time);
       });
+    },
+    "submit .set-timer-length": function(event) {
+      event.preventDefault();
+      console.log(event.target.timerLength.value);
+      Meteor.call("setTimerLength", this._id, event.target.timerLength.value, function(error, success) {
+        console.log("set timer length", success);
+      });
+      $('#set-timer-modal').modal('toggle')
     }
   });
 }
