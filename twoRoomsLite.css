@@ -124,3 +124,18 @@
 .width-100 {
 	width: 100%;
 }
+
+.support-the-creators {
+	padding: 10px;
+	text-align: center;
+}
+
+.footer-text {
+	position: absolute;
+	padding: 10px;
+	text-align: center;
+	font-size: 9px;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+}
