@@ -72,6 +72,7 @@
 
 .leave-game-button, .start-game-button {
 	height: 50px;
+	border-radius: 0px;
 }
 
 .lobby .start-game-button {

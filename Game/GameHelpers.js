@@ -66,7 +66,7 @@ if (Meteor.isClient) {
         }
       })
     },
-    "focus #game-address": function(event) {
+    "click #game-address": function(event) {
         var urlField = document.getElementById('game-address');
         // select the contents
         urlField.setSelectionRange(0,9999);
