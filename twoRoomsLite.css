@@ -34,24 +34,26 @@
 }
 
 .Terrorists {
-	background-color: #B33E3E;
-	color: #fff;
+	color: #B33E3E;
+	background-color: #B0B0B0;
 }
 
 .Counter-Terrorists {
-	background-color: #43B1FA;
-	color: #fff;
+	color: #6CD3EB;
+	background-color: #878787;
 }
 
 .Individual {
-	background-color: #40C267;
-	color: #fff;
+	color: #92DEA4;
+	background-color: #8F8F8F;
 }
 
 .card {
 	min-height: 500px;
 	margin-bottom: 20px;
 	border-radius: 30px;
+	border: 5px solid #D6D6D6;
+	box-shadow: 0px 0px 5px #333;
 }
 
 .spacer {
