@@ -69,12 +69,19 @@
 	z-index: 10;
 }
 
-.new-game-button {
+.new-game-button, .join-game-button {
 	margin-top: 10%;
-	background-color: steelblue;
 	height: 50px;
 	font-size: 32px;
 	color:#fff;
+}
+
+.new-game-button {
+	background-color: steelblue;
+}
+
+.join-game-button {
+	background-color: #4BC977;
 }
 
 .leave-game-button, .start-game-button {
@@ -146,4 +153,11 @@
 	bottom: 0px;
 	left: 0px;
 	right: 0px;
+	overflow: hidden;
+}
+
+@media(max-height: 500px) {
+	.footer-text{
+		display: none;
+	}
 }

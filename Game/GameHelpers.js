@@ -66,8 +66,8 @@ if (Meteor.isClient) {
         }
       })
     },
-    "click #game-address": function(event) {
-        var urlField = document.getElementById('game-address');
+    "click #game-access-code": function(event) {
+        var urlField = document.getElementById('game-access-code');
         // select the contents
         urlField.setSelectionRange(0,9999);
         if(document.queryCommandSupported("copy")) {
@@ -75,6 +75,4 @@ if (Meteor.isClient) {
         }
     }
   });
-
-
 }

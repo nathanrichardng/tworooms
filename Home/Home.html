@@ -6,7 +6,9 @@
 	  </p>
 	  <div class="pull-right"><a href="/instructions">How to play</a></div>
 	</div>
-	<button class="col-xs-12 col-md-4 col-md-offset-4 new-game-button">New Game</button>
+	{{> accessCodeWidget}}
+	{{> error errorText=errorText}}
+	<button class="col-xs-12 col-md-4 col-md-offset-4 {{buttonClass}}">{{buttonText}}</button>
 	
 	<div class="support-the-creators col-xs-12">
 		<a href="http://tuesdayknightgames.com/tworoomsandaboom/">
@@ -20,4 +22,16 @@
 			Two Rooms is an unofficial mobile adaptation of the card game <em>Two Rooms and a Boom</em>. The card game was originally designed by Alan Gerding and Sean McCoy. Check it out at <a href="http://tuesdayknightgames.com/tworoomsandaboom/">tuesdayknightgames.com</a>!
 		</div>
 	</div>
+</template>
+
+<template name="accessCodeWidget">
+	<form class="join-game-form">
+		<input type="text" class="form-control" id="enter-access-code" placeholder="Enter access code" autocomplete="off">
+	</form>
+</template>
+
+<template name="error">
+	{{#if errorText}}
+		<p class="bg-danger">{{errorText}}</p>
+	{{/if}}
 </template>

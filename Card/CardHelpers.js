@@ -1,5 +1,13 @@
 if (Meteor.isClient) {
   // This code only runs on the client
+  Template.card.onCreated(function(){
+    //use this to remove modal when game starts
+    var modals = document.getElementsByClassName('modal-backdrop');
+    while(modals[0]) {
+      modals[0].parentNode.removeChild(modals[0]);
+    }
+  });
+
   Template.card.helpers({
     card: function() {
       var playerId = Session.get("playerId");

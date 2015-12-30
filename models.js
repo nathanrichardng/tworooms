@@ -62,6 +62,21 @@ Schema.Game = new SimpleSchema({
             }
         }
     },
+    accessCode: {
+        type: String,
+        autoValue: function() {
+            if(this.isInsert) {
+                var code = "";
+                var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+                for(var i=0; i < 6; i++){
+                  code += possible.charAt(Math.floor(Math.random() * possible.length));
+                }
+
+                return code;
+            }
+        }
+    },
     deckList: {
         type: [String],
         autoValue: function() {

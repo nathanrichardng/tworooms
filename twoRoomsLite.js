@@ -61,7 +61,7 @@ if (Meteor.isServer) {
     var ctSpy = {
       name: "Counter-Terrorist Spy",
       description: "You are a highly trained spy in a deep cover operation. Gain the enemy's trust, gather intel, and most importantly: save the President.",
-      team: "Counter-Terrorists",
+      team: "Terrorists",
       core: false
     }
 
