@@ -60,6 +60,11 @@
 
 .scroll-x {
 	overflow-x: auto;
+	z-index: -1;
+}
+
+#game-address {
+	z-index: 10;
 }
 
 .new-game-button {
