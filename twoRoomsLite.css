@@ -34,29 +34,33 @@
 }
 
 .playersWidget {
-	box-shadow: 0px 0px 10px #333;
+	box-shadow: 5px 5px 15px #333;
 	margin-top: 20px;
 	overflow: hidden;
-	color: #333;
+	color: #363D38;
+	background-color: #BFBFBF;
 }
 
 .playersWidget ul {
 	margin: 0px;
 	padding: 5px;
+	padding-bottom: 15px;
 }
 
 .playersWidget h3 {
-	background-color: #e1e1e1;
-	padding: 20px;
-	margin-top: 0px;
-	color: #333;
+	padding: 10px 20px;
+	margin: 0px;
+	background-color: #8C8C8C;
+	color: #fff;
+	font-family: 'Gloria Hallelujah', cursive;
 }
 
 .player-item {
-	margin: 5px 3px;
+	margin: 10px 3px;
 	padding: 5px 20px;
 	background-color: #92DEA4;
 	box-shadow: 1px 1px 5px #333;
+	font-size: 18px;
 }
 
 .Terrorists {
