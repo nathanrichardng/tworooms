@@ -33,6 +33,32 @@
 	font-family: 'Gloria Hallelujah', cursive;
 }
 
+.playersWidget {
+	box-shadow: 0px 0px 10px #333;
+	margin-top: 20px;
+	overflow: hidden;
+	color: #333;
+}
+
+.playersWidget ul {
+	margin: 0px;
+	padding: 5px;
+}
+
+.playersWidget h3 {
+	background-color: #e1e1e1;
+	padding: 20px;
+	margin-top: 0px;
+	color: #333;
+}
+
+.player-item {
+	margin: 5px 3px;
+	padding: 5px 20px;
+	background-color: #92DEA4;
+	box-shadow: 1px 1px 5px #333;
+}
+
 .Terrorists {
 	color: #B33E3E;
 	background-color: #B0B0B0;

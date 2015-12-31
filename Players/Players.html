@@ -1,14 +1,18 @@
 <template name="players">
-	<h3>Players:</h3>
-	<ul class="list-group">
-		{{#each players}}
-			{{> player}}
-		{{/each}}
-	</ul>
+	<div class="col-md-8">
+		<div class="playersWidget">
+			<h3>Players:</h3>
+			<ul>
+				{{#each players}}
+					{{> player}}
+				{{/each}}
+			</ul>
+		</div>
+	</div>
 </template>
 
 <template name="player">
-	<div class="list-group-item col-md-8">{{name}}</div>
+	<div class="player-item">{{name}}</div>
 </template>
 
 <template name="addPlayerForm">
