@@ -27,6 +27,12 @@ if (Meteor.isClient) {
         }
         else {
           Router.go("/game/"+gameId);
+          var Airhorn = new Howl({
+            src: ['/sounds/airhorn.mp3'],
+            volume: 0.0
+          });
+          Airhorn.mute();
+          Airhorn.play(); 
         }
       }) 
     },
@@ -38,6 +44,11 @@ if (Meteor.isClient) {
       if(game) {
         var gameId = game._id;
         Router.go("/game/"+gameId);
+        var Airhorn = new Howl({
+          src: ['/sounds/airhorn.mp3'],
+          volume: 0.0
+        });
+        Airhorn.play(); 
       }
       else {
         template.errorText.set("No game found for that Access Code");
@@ -51,6 +62,11 @@ if (Meteor.isClient) {
       if(game) {
         var gameId = game._id;
         Router.go("/game/"+gameId);
+        var Airhorn = new Howl({
+          src: ['/sounds/airhorn.mp3'],
+          volume: 0.0
+        });
+        Airhorn.play(); 
       }
       else {
         template.errorText.set("No game found for that Access Code");

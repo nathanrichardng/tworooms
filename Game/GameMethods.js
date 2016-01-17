@@ -84,8 +84,8 @@ if (Meteor.isServer) {
           fillerCount -= 1;
         };
         for(i = 0; i < (fillerCount/2); i++ ) {
-          var agent = Cards.findOne({ name: "Agent" })._id;
-          var terrorist = Cards.findOne({ name: "Terrorist" })._id;
+          var agent = Cards.findOne({ name: "Blue Agent" })._id;
+          var terrorist = Cards.findOne({ name: "Red Agent" })._id;
           this.deck.push(agent);
           this.deck.push(terrorist);
         };
