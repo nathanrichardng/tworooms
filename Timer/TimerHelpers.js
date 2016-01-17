@@ -1,5 +1,4 @@
 if (Meteor.isClient) {
-
   Template.timer.helpers({
     timeRemaining: function() {
       var playerId = Session.get("playerId");
@@ -16,7 +15,12 @@ if (Meteor.isClient) {
       else {
         returnTime = moment(game.timerLength * 60000);
       }
-
+      if (returnTime < 0 && returnTime > -1000) {
+        var Airhorn = new Howl({
+          src: ['/sounds/airhorn.mp3']
+        });
+        Airhorn.play(); 
+      }
       return returnTime > 0 ? returnTime.format("m:ss") : "Times up!";
     },
     timerRunning: function() {
@@ -42,6 +46,7 @@ if (Meteor.isClient) {
     },
     "click .reset-timer": function(event) {
       event.preventDefault();
+
       Meteor.call("resetTimer", this._id, function(error, time) {
         console.log("reset time", time);
       });

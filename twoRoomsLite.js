@@ -18,92 +18,92 @@ if (Meteor.isServer) {
   if (Cards.find({}).count() === 0) {
     var bomber = {
       name: "Bomber",
-      description: "You are the Bomber! End the game in the same room as the President, and the Terrorists win.",
-      team: "Terrorists",
+      description: "You are the Bomber! End the game in the same room as the President, and the Red Team wins.",
+      team: "Red",
       core: true
     }
 
     var president = {
       name: "President",
-      description: "You are the President! End the game in a different room from the Bomber and the Counter-Terrorists win.",
-      team: "Counter-Terrorists",
+      description: "You are the President! End the game in a different room from the Bomber and the Blue Team wins.",
+      team: "Blue",
       core: true
     }
 
     var agent = {
-      name: "Agent",
-      description: "You are an agent of the secret service. Protect the president at all costs!",
-      team: "Counter-Terrorists",
+      name: "Blue Agent",
+      description: "You are an agent of the Blue Team. Protect the president at all costs!",
+      team: "Blue",
       core: true
     }
 
     var terrorist = {
-      name: "Terrorist",
-      description: "You are a terrorist. You should feel ashamed of your poor life choices.",
-      team: "Terrorists",
+      name: "Red Agent",
+      description: "You are an agent of the Red Team. You should feel ashamed of your poor life choices.",
+      team: "Red",
       core: true
     }
 
     var gambler = {
       name: "Gambler",
       description: "You must pick a side before the game is done. Better guess right!",
-      team: "Individual",
+      team: "Grey",
       core: true
     }
 
     var terroristSpy = {
-      name: "Terrorist Spy",
-      description: "Shhh...you're actually a terrorist.",
-      team: "Counter-Terrorists",
+      name: "Red Spy",
+      description: "Shhh...you're actually on the Red Team.",
+      team: "Blue",
       core: false
     }
 
     var ctSpy = {
-      name: "Counter-Terrorist Spy",
+      name: "Blue Spy",
       description: "You are a highly trained spy in a deep cover operation. Gain the enemy's trust, gather intel, and most importantly: save the President.",
-      team: "Terrorists",
+      team: "Red",
       core: false
     }
 
     var moby = {
       name: "Moby",
       description: "You are an elusive white whale that just wants to be left alone! You win the game if that pesky Captain Ahab winds up in the same room as the bomber.",
-      team: "Individual",
+      team: "Grey",
       core: false
     }
 
     var ahab = {
       name: "Ahab",
       description: "You are Captain Ahab! Forever on the hunt for that darned white whale. You win the game if Moby winds up in the same room as the bomber. Let's see him swim away after that one!",
-      team: "Individual",
+      team: "Grey",
       core: false
     }
 
     var terroristShyGuy = {
-      name: "Shy Guy (Terrorist)",
+      name: "Shy Guy (Red Team)",
       description: "You tell everyone that you're shy, but really you just don't want to share anything about yourself.",
-      team: "Terrorists",
+      team: "Red",
       core: false
     }
 
     var ctShyGuy = {
-      name: "Shy Guy (Counter-Terrorist)",
-      description: "It's not so much that you don't have anything to say, you just don't like to toot your own horn. In fact, you can't even tell anyone that you're part of the secret service.",
-      team: "Counter-Terrorists",
+      name: "Shy Guy (Blue Team)",
+      description: "It's not so much that you don't have anything to say, you just don't like to toot your own horn. In fact, you can't even tell anyone how proud you are for working with the president.",
+      team: "Blue",
       core: false
     }
 
     var firstLady = {
-      name: "First Lady",
+      name: "Wife",
       description: "You've been with him through thick and thin; this crisis doesn't change any of that. End the game in the same room as the president and you win.",
-      team: "Individual",
+      team: "Grey",
       core: false
     }
 
     var mistress = {
-      name: "The other woman",
-      description: "You've been working a lot of long hours together, and you can totally sense that there's a connection between you two. If only he wasn't married...End the game in the same room as the president (without the First Lady) to win the game.",
-      team: "Individual",
+      name: "Mistress",
+      description: "You've been working a lot of long hours together, and you can totally sense that there's a connection between you two. If only he wasn't married...End the game in the same room as the president (without his Wife) to win the game.",
+      team: "Grey",
       core: false
     }
 

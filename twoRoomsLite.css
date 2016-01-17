@@ -63,17 +63,17 @@
 	font-size: 18px;
 }
 
-.Terrorists {
+.Red {
 	color: #B33E3E;
 	background-color: #B0B0B0;
 }
 
-.Counter-Terrorists {
+.Blue {
 	color: #6CD3EB;
 	background-color: #878787;
 }
 
-.Individual {
+.Grey {
 	color: #92DEA4;
 	background-color: #8F8F8F;
 }
@@ -163,6 +163,10 @@
 }
 
 .instructions {
+	font-family: 'Lora', serif;
+}
+
+.instructions h1, .instructions a {
 	font-family: 'Gloria Hallelujah', cursive;
 }
 

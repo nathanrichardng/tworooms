@@ -2,11 +2,11 @@ if (Meteor.isClient) {
 	Template.icon.helpers({
 		iconClass: function() {
 			switch(this.team) {
-				case "Terrorists":
+				case "Red":
 					return "fa fa-bomb";
-				case "Counter-Terrorists":
+				case "Blue":
 					return "fa fa-shield";
-				case "Individual":
+				case "Grey":
 					return "fa fa-male";
 				default:
 					return "";
